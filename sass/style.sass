@@ -1,0 +1,508 @@
+@import "normalizes.scss"
+
+@font-face
+    font-family: "MontserratT"
+    src: url('../font/Montserrat-Regular.ttf')
+    font-weight: regular
+    font-style: normal
+
+@font-face
+    font-family: "MontserratT"
+    src: url('../font/Montserrat-SemiBold.ttf')
+    font-weight: bold
+    font-style: normal
+
+$color-blue: #5290ea
+$color-orange: #F28B64 
+$color-grey: #E2E2E2
+$color-white: white
+
+*, ::after, ::before
+    box-sizing: border-box
+
+html
+    font-size: 62.5%
+    scroll-behavior: smooth
+
+body
+    font-family: "MontserratT"
+    font-weight: regular
+
+@mixin respond($breakpoint)
+    @if $breakpoint == phone
+        @media only screen and (max-width: 472px)
+            @content
+
+    @if $breakpoint == tab-port3
+        @media only screen and (max-width: 670px)
+            @content
+
+    @if $breakpoint == tab-port2
+        @media only screen and (max-width: 712px)
+            @content
+    
+    @if $breakpoint == tab-port
+        @media only screen and (max-width: 916px)
+            @content
+    
+    @if $breakpoint == tab-land
+        @media only screen and (max-width: 1095px)
+            @content
+    
+    @if $breakpoint == big-screen
+        @media only screen and (min-width: 1800px)
+            @content
+
+.container
+    max-width: 114rem
+    margin: 0 auto
+    position: relative
+
+.main-section
+    position: relative
+    min-height: 85rem
+    background: $color-grey
+    padding-top: 1.6rem
+    overflow: hidden
+    @include respond(tab-port)
+        min-height: 65rem
+    @include respond(tab-port3)
+        min-height: 40rem
+    &__nav-container
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        height: 6.9rem
+        align-items: center
+        @include respond(tab-land)
+            padding: 0 3rem 0 3rem
+        @include respond(phone)
+            padding: 0
+    &__logo
+        width: 13.4rem
+        padding-top: 1.6rem
+        @include respond(tab-port3)
+            width: 10.4rem
+            padding-top: 0
+    &__content-container
+        position: relative
+        display: flex
+        flex-direction: row
+    &__first-elipse
+        position: absolute
+        top: 12.9rem
+        right: 3.3rem
+
+    &__second-elipse
+        position: absolute
+        right: -12rem
+        top: 65rem
+
+
+.nav-menu
+    &__list
+        display: flex
+        flex-direction: row
+        list-style-type: none
+    &__list-item
+        margin-right: 6.4rem
+        font-size: 1.8rem
+        font-weight: bold
+        &:last-child
+            margin-right: 0
+        a
+            text-decoration: none
+            color: black
+        @include respond(tab-port2)
+            margin-right: 4.4rem
+            font-size: 1.6rem
+
+.left-wrapper
+    position: relative
+    img
+        position: relative
+        z-index: 5
+        width: 100%
+        @include respond(tab-land)
+            width: 83%
+            padding-top: 10rem
+        @include respond(tab-port)
+            width: 64%
+            padding-top: 10rem
+        @include respond(tab-port2)
+            padding-top: 3rem
+        @include respond(tab-port3)
+            display: none
+    &__rectangle-blue
+        position: absolute
+        top: 22%
+        left: -5%
+        width: 61.5%
+        height: 29%
+        background: $color-blue
+        border-radius: 10rem
+        box-shadow: 0 .4rem .4rem rgba(0, 0, 0, 0.25)
+        transform: rotate(-64deg)
+        z-index: 2
+        @include respond(tab-port)
+            top: 29%
+            left: -10%
+            width: 56.5%
+            height: 27%
+        @include respond(tab-port2)
+            display: none
+    &__rectangle-orange
+        position: absolute
+        width: 69%
+        height: 32%
+        left: -3%
+        top: 22%
+        transform: rotate(-50.81deg) 
+        background: $color-orange
+        box-shadow: 0 .4rem .4rem rgba(0, 0, 0, 0.25) 
+        border-radius: 10rem
+        z-index: 3
+        @include respond(tab-port)
+            width: 64%
+            height: 30%
+            left: -8%
+            top: 30%
+        @include respond(tab-port2)
+            display: none
+ 
+    &__rectangle-grey
+        position: absolute
+        width: 68%
+        height: 30%
+        left: 0%
+        top: 27%
+        transform: rotate(-36.15deg) 
+        background: $color-grey
+        box-shadow: 0 .4rem .4rem rgba(83, 83, 83, 0.87) 
+        border-radius: 10rem
+        z-index: 1
+        @include respond(tab-port)
+            width: 63%
+            height: 28%
+            left: -3%
+            top: 38%
+        @include respond(tab-port2)
+            display: none
+
+.right-wrapper
+    width: 37.2rem
+    position: absolute
+    top: 15rem
+    right: 7.6rem
+    z-index: 5
+    @include respond(tab-land)
+        padding-left: 5rem
+        top: 21rem
+    @include respond(tab-port)
+        top: 18rem
+    @include respond(tab-port2)
+        top: 9rem
+        padding-left: 8rem
+    @include respond(tab-port3)
+        width: 37.2rem
+        top: 54px
+        right: 148px
+    @include respond(phone)
+        padding-left: 15rem
+        top: 2rem
+    &__icons-box
+        margin-bottom: .1rem
+        padding-left: 1rem
+        @include respond(tab-port3)
+            margin-bottom: 1rem
+    &__text
+        font-size: 1.6rem
+        margin: 0 0 2rem 0
+
+
+.icons
+    display: flex
+    flex-direction: row
+    &__item
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 4rem
+        height: 4rem
+        border: .1rem solid $color-blue
+        border-radius: 10rem
+        margin-right: 1.2rem
+        &:last-child
+            margin-right: 0
+        i
+            font-size: 2.1rem
+
+.title
+    font-size: 7.2rem
+    margin: 0
+    position: relative
+    font-weight: bold
+    @include respond(tab-land)
+        font-size: 5rem
+    @include respond(tab-port3)
+        font-size: 4rem
+    &__hr
+        width: 6.5rem
+        position: absolute
+        bottom: 0
+        margin: 0 0 .5rem 0
+        border: none
+        border-top: .1rem solid black
+        @include respond(tab-port3)
+            width: 3.5rem
+        @include respond(phone)
+            width: 2.8rem
+
+
+.buttons
+    display: inline-flex
+    &__main-btn
+        margin-right: 3.2rem
+        width: 20rem
+        height: 6rem
+        background: $color-orange
+        box-shadow: 0 .4rem .4rem rgba(0, 0, 0, 0.25)
+        border-radius: 10rem
+        border: none
+        color: white
+        font-size: 1.8rem
+        font-weight: bold
+        @include respond(tab-port2)
+            margin-right: 1.2rem
+        @include respond(tab-port3)
+            margin-right: 1.8rem
+    &__icon-btn
+        display: inline-flex
+        img
+            width: 4.6rem
+            height: 4.6rem
+            margin-right: 1.2rem
+    &__text
+        font-size: 1.6rem
+        @include respond(tab-port2)
+            font-size: 1.4rem
+
+.elipse
+    width: 19.4rem 
+    height: 19.4rem 
+    background: linear-gradient(144deg, #ED7B50 0%, #488AEA 54%, #2C2C2C 100%) 
+    border-radius: 150rem
+    display: flex
+    justify-content: center
+    align-items: center
+    @include respond(tab-land)
+        display: none
+    &_dig
+        width: 28.2rem
+        height: 28.2rem 
+        @include respond(tab-land)
+            display: none
+    &__subtract
+        width: 12.9rem
+        height: 12.9rem
+        background: #F0F0F0
+        border-radius: 15rem
+        @include respond(tab-land)
+            display: none
+        &_big
+            width: 18.8rem
+            height: 18.8rem
+            @include respond(tab-land)
+                display: none
+        &_white
+            background: $color-white
+            @include respond(tab-land)
+                display: none
+
+.second-section
+    min-height: 70rem
+    overflow: hidden
+    &__container
+        padding-top: 3.2rem
+        position: relative
+        @include respond(tab-port3)
+            padding-top: 1rem
+    &__title
+        margin-bottom: 4rem
+        @include respond(tab-port)
+            padding-left: 3rem
+        @include respond(tab-port2)
+            padding-right: 1rem
+        @include respond(tab-port3)
+            margin-bottom: 1rem
+    &__cards-box
+        justify-items: center
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr))
+        gap: 3rem
+        margin-bottom: 4rem
+    &__icons-box
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr))
+        justify-items: center
+        gap: 3rem
+        @include respond(tab-land)
+            margin-bottom: 3rem
+    &__first-elipse
+        position: absolute
+        top: 8rem
+        right: -6rem
+        z-index: -1
+    &__second-elipse
+        position: absolute
+        top: 36.4rem
+        left: -6rem
+        z-index: -1
+
+.cards-item
+    position: relative
+    width: 36rem
+    height: 36rem
+    background: $color-grey
+    border-radius: 1rem
+    box-shadow: -.1rem .7rem .8rem -.4rem rgba(34, 60, 80, 0.29)
+    display: flex
+    align-items: flex-end
+    &__img
+        height: 33.5rem
+    &__text
+        width: 28rem
+        font-size: 3.6rem
+        text-align: center
+        transform: rotate(90deg)
+        position: absolute
+        top: 10rem
+        right: -5.5rem
+        font-weight: bold
+
+.cards-item_orange
+    background: $color-orange
+
+.cards-item_blue
+    background: $color-blue
+
+.icons-items
+    display: inline-flex
+    align-items: center
+    &__img
+        margin-right: 2rem
+        width: 8rem
+        height: 8rem
+        @include respond(tab-port3)
+            margin-right: 2rem
+            width: 6rem
+            height: 6rem
+    &__text
+        font-size: 1.8rem
+        margin: 0
+        @include respond(tab-port3)
+            font-size: 1.5rem
+        span
+            font-size: 4.8rem
+            font-weight: bold
+            @include respond(tab-port3)
+                font-size: 2.8rem
+
+.third-section
+    position: relative
+    min-height: 64rem
+    background: $color-grey
+    z-index: 0
+    overflow: hidden
+    @include respond(tab-port3)
+        min-height: 48rem
+    &__container
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        padding: 4.6rem 2rem 0 16.7rem
+        @include respond(tab-port)
+            padding: 4.6rem 2rem 0 6.7rem
+        @include respond(tab-port2)
+            padding: 1.6rem 2rem 0 1.7rem
+        @include respond(tab-port3)
+            justify-content: center
+        @include respond(phone)
+            padding: 1rem 
+
+    &__right-wrapper
+        max-width: 48rem
+    &__right-title
+        margin-bottom: 2rem
+    &__left-title
+        margin-right: 2rem
+        @include respond(tab-port3)
+            display: none
+    &__text
+        font-size: 1.8rem
+        margin-bottom: 3rem
+        @include respond(tab-port3)
+            font-size: 1.6rem
+        @include respond(phone)
+            margin-bottom: 2rem
+    &__first-elipse
+        position: absolute
+        top: 17.7rem
+        left: 11rem
+        z-index: -2
+    &__figure
+        width: 23rem
+        height: 23rem
+        position: absolute
+        top: 25.4rem
+        left: .7rem
+        z-index: -1
+        @include respond(tab-port3)
+            display: none
+    &__second-elipse
+        position: absolute
+        right: -12rem
+        top: -12rem
+
+.title__hr_top
+    bottom: 8.6rem
+    @include respond(tab-land)
+        bottom: 5.6rem
+    @include respond(tab-port3)
+        bottom: 4.6rem
+
+
+.footer-section
+    min-height: 26.5rem
+    &__container
+        display: flex
+        justify-content: flex-end
+        @include respond(tab-land)
+            margin-right: 12rem
+        @include respond(tab-port)
+            margin-right: 4rem
+        @include respond(tab-port)
+            justify-content: center
+            padding-left: 8rem
+    &__img
+        width: 80rem
+        height: 36.2rem
+        position: absolute
+        left: -38.1rem
+        bottom: -7.2rem
+        @include respond(tab-land)
+            width: 86rem
+            height: 31.2rem
+            left: -44.1rem
+            bottom: -7.2rem
+        @include respond(tab-port2)
+            display: none
+    &__wrapper
+        padding-top: 3rem
+        @include respond(phone)
+            padding-top: 1rem
+    &__title
+        margin-bottom: 2rem
+
+
